@@ -66,9 +66,19 @@ def display_frequency(tab,Available_Codes,path="images/frequency.png"):
     for i in range(len(tab)):
         d[tab[i]]=frequency(tab[i],Available_Codes)
     
-    # display the data
-    height=list(d.keys())
-    bars=list(d.values())
+    #display the plot 
+    display_plot(list(d.keys()),list(d.values()),path)
+    
+    
+
+def display_plot(height,bars,path):
+    """
+    This function create a plot with height as y-axis and bars as x-axis
+    :param height: a list of which will be displayed as y-axis
+    :param bars: a list of which will be displayed as x-axis
+    :param path: a path where the plot will be saved 
+    :return:
+    """
     y_pos = np.arange(len(bars))
 
     # Create bars and choose color
@@ -86,7 +96,6 @@ def display_frequency(tab,Available_Codes,path="images/frequency.png"):
     plt.savefig(path,dpi=400)
     # Show graphic
     #plt.show()
-
 
 def main():
     #open both csv files  so our functions are independent of the files
