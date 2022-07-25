@@ -1,7 +1,10 @@
 import pandas as pd
+import random
+import matplotlib.pyplot as plt
+import numpy as np
 #in the data folder we have two csv file, one with all the codes and the other with only the available ones
 
-def calculate_percentage():
+def calculate_percentage(Available_Codes,All_Codes):
     """
     This function calculate the percentage of available codes
     out of all codes.
@@ -10,9 +13,6 @@ def calculate_percentage():
 
     :return: percentage of available codes
     """
-    #open both csv files 
-    Available_Codes=pd.read_csv("data/codes_disponibles.csv",usecols=["codes"])
-    All_Codes=pd.read_csv("data/tous_les_codes.csv",usecols=["codes"])
 
     # the file of available codes contains a lot of duplicate
     # so we need to remove all the duplicate codes
@@ -25,22 +25,85 @@ def calculate_percentage():
     #calculate the percentage
     return (AV_size*100)/AL_size
 
-def frequency(code):
+def frequency(code,Available_Codes):
     """
     Calculate the frequency of a given available code
 
     :param code: an available code 
+    :param Available_Codes: DataFrame of available codes
     :return: frequency of code
     """
-    # open the available codes csv file
-
+    #check if code exist in our dataframe
+    assert code in Available_Codes.values, 'Error the code doesnt exist in the DataFrame'
     # count all the occurrences of code in the file
-
+    # the value_counts method display for each unique code its occurrences
+    # so we only have to search the occurency of code which is a key
+    occ= Available_Codes.value_counts()[code]
+    
     # divide the number of occurrences of code on all available codes
+    data_size=len(Available_Codes)
+    return occ/data_size
 
+def rand_available(Available_Codes):
+    """
+    This function return a random number from the values of the DataFrame Available_Codes
+    :param Available_Codes: DataFrame of available codes
+    :return: random number
+    """
+    return random.choice(Available_Codes.values)[0]
+
+
+def display_frequency(tab,Available_Codes,path="images/frequency.png"):
+    """
+    display a graph which compares the frequency of 5 available codes
+    :param tab: a list of 5 available codes
+    :param path: By default its "images/frequency.png" where the plot will be saved 
+
+    """
+    # create a dictionnary with keys as the  availables codes and their values as their frequency
+    d=dict()
+    tab.sort()
+    for i in range(len(tab)):
+        d[tab[i]]=frequency(tab[i],Available_Codes)
+    
+    # display the data
+    height=list(d.keys())
+    bars=list(d.values())
+    y_pos = np.arange(len(bars))
+
+    # Create bars and choose color
+    plt.bar(y_pos, bars, color=(0.5,0.1,0.5,0.6))
+
+    #add title 
+    plt.title("Frequency of 5 available codes")
+    plt.xlabel("available codes")
+    plt.ylabel("frequency")
+
+    # Create names on the x-axis
+    plt.xticks(y_pos, height)
+
+    #save plot
+    plt.savefig(path,dpi=400)
+    # Show graphic
+    #plt.show()
 
 
 def main():
-    print("The percentage of available codes out of all codes is :",calculate_percentage())
+    #open both csv files  so our functions are independent of the files
 
-main()
+    Available_Codes=pd.read_csv("data/codes_disponibles.csv", usecols=["codes"])
+    All_Codes=pd.read_csv("data/tous_les_codes.csv", usecols=["codes"])
+
+    print("The percentage of available codes out of all codes is :", calculate_percentage(Available_Codes, All_Codes))
+    
+    #we use the rand_available function to have a random number to test the frequency function
+
+    print("the frequency is:",frequency(rand_available(Available_Codes),Available_Codes))
+
+    print("---------Display the graph that compares the frequency of 5 available codes-------")
+    
+    # create a list of 5 random available codes 
+    tab=[ rand_available(Available_Codes) for i in range(5) ]
+    display_frequency(tab,Available_Codes)
+if __name__ == "__main__":
+    main()

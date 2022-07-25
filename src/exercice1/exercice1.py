@@ -8,6 +8,7 @@ def lottery():
     Each number should be between 1 and 49.
     There shouldn't be a duplicate number among those 6.
     Display them in ascending order
+    :return: a sorted list of 6 random number between 1 and 49 included
     """
     # Generate a list of 6 numbers between 1 and 49 included
     # we use the famous randrange function of the random library
