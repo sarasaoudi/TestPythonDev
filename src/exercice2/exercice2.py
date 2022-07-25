@@ -97,6 +97,21 @@ def display_plot(height,bars,path):
     # Show graphic
     #plt.show()
 
+def display_statistique_parameters(Available_Codes):
+    """
+    """
+    # Calculate the frequency of each value of Available_codes
+    fre=Available_Codes.value_counts()
+
+    #search for the maximum of the frequencies of the available codes
+
+    #search for the minimum of the frequencies of the available codes
+
+    #search for the average of the frequencies of the available codes
+
+    #search for the median of the frequencies of the available codes
+    print(fre)
+
 def main():
     #open both csv files  so our functions are independent of the files
 
@@ -114,5 +129,10 @@ def main():
     # create a list of 5 random available codes 
     tab=[ rand_available(Available_Codes) for i in range(5) ]
     display_frequency(tab,Available_Codes)
+
+    print("display the statistique parameter graph")
+    display_statistique_parameters(Available_Codes)
+
+
 if __name__ == "__main__":
     main()
