@@ -153,19 +153,19 @@ def main():
     Available_Codes=pd.read_csv("data/codes_disponibles.csv", usecols=["codes"])
     All_Codes=pd.read_csv("data/tous_les_codes.csv", usecols=["codes"])
 
-    print("The percentage of available codes out of all codes is :", calculate_percentage(Available_Codes, All_Codes))
+    print("The percentage of available codes out of all codes is :", calculate_percentage(Available_Codes, All_Codes) ,"\n")
     
     #we use the rand_available function to have a random number to test the frequency function
+    rand_code=rand_available(Available_Codes)
+    print("the frequency of the code ", rand_code, " is :", frequency(rand_code,Available_Codes) ,"\n")
 
-    print("the frequency is:",frequency(rand_available(Available_Codes),Available_Codes))
-
-    print("---------Display the graph that compares the frequency of 5 available codes-------")
+    print("The graph that compares the frequency of 5 available codes is available at images/frequency.png ")
     
     # create a list of 5 random available codes 
     tab=[ rand_available(Available_Codes) for i in range(5) ]
     display_frequency(tab,Available_Codes)
 
-    print("display the statistique parameter graph")
+    print("The graph that display the statistique parameter is available at images/statistiques.png")
     display_statistique_parameters(Available_Codes)
 
 
