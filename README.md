@@ -4,8 +4,8 @@ _[Test Technique] Customs Bridge - Python/Data_
 
 In this project we have both exercices:
  
- * [Exercice 1]
- * [Exercice 2]
+ * [Exercice 1](file:///../src/exercice1/exercice1.py)
+ * [Exercice 2](file:///../src/exercice2/exercice2.py)
 
 
 ## To begin
@@ -71,7 +71,3 @@ _examples :_
 
 MIT
 
-[Test Technique]("file://Exercices_Python_dev_data_2022.pdf")
-
-[Exercice 1]("src\exercice1")
-[Exercice 2]("src\exercice2")
