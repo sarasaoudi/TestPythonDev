@@ -40,10 +40,10 @@ py exercice2.py
 
 ### The First graph that shows the frequencies of 5 random availale codes
 
-![Graph 1](src\exercice2\images\frequency.png)
+![Graph 1](./src\exercice2\images\frequency.png)
 ### The second graph that shows few statistiques parameteres of the availables codes's data
 
-![Graph 2](src\exercice2\images\statistiques.png)
+![Graph 2](./src\exercice2\images\statistiques.png)
 
 ## How to execute Exercice 2
 First browse with your terminal to the [Exercice 2] folder.
