@@ -41,6 +41,7 @@ py exercice2.py
 ### The First graph that shows the frequencies of 5 random availale codes
 
 ![Graph 1](/src\exercice2\images\frequency.png "graph 1")
+<img src="/src\exercice2\images\frequency.png" alt="graph 1" style="height: 100px; width:100px;"/>
 ### The second graph that shows few statistiques parameteres of the availables codes's data
 
 ![Graph 2](/src\exercice2\images\statistiques.png "graph 2")
