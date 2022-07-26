@@ -40,7 +40,7 @@ py exercice2.py
 
 ### The First graph: the frequencies of 5 random availale codes
 
-<img src="/src\exercice2\images\frequency.png" alt="graph 1" style="height: 100px; width:100px;"/>
+<img src="/src\exercice2\images\frequency.png" alt="graph 1" style="height: 100px; width:150px;"/>
 
 
 ### The second graph : few statistiques parameteres of the availables codes's data
@@ -71,7 +71,7 @@ _examples :_
 
 MIT
 
-[Test Technique]: "Exercices_Python_dev_data_2022.pdf"
+[Test Technique]: "./Exercices_Python_dev_data_2022.pdf"
 
-[Exercice 1]: "src\exercice1"
-[Exercice 2]: "src\exercice2"
+[Exercice 1]: "./src\exercice1"
+[Exercice 2]: "./src\exercice2"
