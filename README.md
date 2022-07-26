@@ -4,8 +4,8 @@ _[Test Technique] Customs Bridge - Python/Data_
 
 In this project we have both exercices:
  
- * [Exercice 1](file:///../src/exercice1/exercice1.py)
- * [Exercice 2](file:///../src/exercice2/exercice2.py)
+ * [Exercice 1](./src/exercice1/exercice1.py)
+ * [Exercice 2](./src/exercice2/exercice2.py)
 
 
 ## To begin
