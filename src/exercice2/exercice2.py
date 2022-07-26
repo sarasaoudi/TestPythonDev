@@ -2,6 +2,7 @@ import pandas as pd
 import random
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 #in the data folder we have two csv file, one with all the codes and the other with only the available ones
 
 def calculate_percentage(Available_Codes,All_Codes):
@@ -104,13 +105,47 @@ def display_statistique_parameters(Available_Codes):
     fre=Available_Codes.value_counts()
 
     #search for the maximum of the frequencies of the available codes
+    #Max=max(list(fre)) # either we try to call the function max on the list of dataFrame 
+
+    # or since the resulting object from value_counts is descending order so that
+    # the first element is the most frequently-occuring element, we can simply choose the first element as the maximum 
+    Max=list(fre)[0]
 
     #search for the minimum of the frequencies of the available codes
+    Min=list(fre)[-1] # with the same logic the minimum is the last one
 
     #search for the average of the frequencies of the available codes
-
+    #two methods:
+    # - Average= fre.mean() or,
+    
+    Average=(sum(list(fre))/len(list(fre)))
     #search for the median of the frequencies of the available codes
-    print(fre)
+    #two methods:
+    # - fre.median()
+    Median=median(list(fre))
+
+    #display the plot
+    height=[Max,Min,Average,Median]
+    x=["Maximum","Minimum","Average","Median"]
+    plt.bar(x,height,tick_label=x,color=(0.5,0.1,0.5,0.6))
+    #add title 
+    plt.title("Statistiques parameters")
+    plt.xlabel("")
+    plt.ylabel("")
+
+    plt.savefig("images/statistiques.png",dpi=400)
+
+
+def median(l):
+    """
+    this function tries to find the median of the list given as a parameter
+    :param l: list of numbers
+    :return: the median of the list
+    """
+    assert len(l)!=0, "Can't calculate median, list empty"
+    l.sort() #sort the list
+    middle=math.floor(len(l)/2) # search the middle index and convert it so it will be always an integer
+    return l[middle] 
 
 def main():
     #open both csv files  so our functions are independent of the files
